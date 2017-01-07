@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<script type="text/javascript">
+		function toDuo(n){
+		    if(n<10){
+		        return '0'+n;
+		    }else{
+		        return n;
+		    }
+		}
+		window.onload=function(){
+		    var oDiv=document.getElementById('div1');
+		    //将来的时间
+		    function ter(){
+		        var oDate=new Date();
+		        oDate.setFullYear(2017,1,6);
+		        oDate.setHours(0,0,0,0)
+		        //现在时间
+		        var now=new Date();
+		 
+		 
+		        var s=parseInt((oDate.getTime()-now.getTime())/1000);
+		 
+		        var d=parseInt(s/86400);
+		        s%=86400;
+		 
+		        var h=parseInt(s/3600);
+		        s%=3600;
+		 
+		        var m=parseInt(s/60)
+		        s%=60;
+		        oDiv.innerHTML='距离你的生日还剩：'+d+'天'+toDuo(h)+'时'+toDuo(m)+'分'+toDuo(s)+'秒';
+		 
+		    }
+		 
+		 
+		    ter();
+		    setInterval(ter,1000)
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div class="bashare-custom">
+		<div class="bshare-custom">
+			<a title="分享到QQ空间" class="bshare-qzone"></a>
+			<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+			<a title="分享到人人网" class="bshare-renren"></a>
+			<a title="分享到腾讯微博" class="bshare-qqmb"></a>
+			<a title="分享到网易微博" class="bshare-neteasemb"></a>
+			<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+			<span class="BSHARE_COUNT bshare-share-count">0</span>
+		</div>
+		<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&uuid=&pophcol=2&lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+	</div>
+</body>
+</html>

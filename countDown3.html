@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>countDown-day</title>
+	<script type="text/javascript">
+		function toDou(n){
+		    if(n<10){
+		        return '0'+n;
+		    }else{
+		        return n;
+		    }
+		}
+		window.onload=function(){
+		    var oDiv=document.getElementById('div1');
+		    function CountDown(){
+		        //未来的时间
+		        var oDate=new Date();
+		        oDate.setFullYear(2017,01,28);
+		        oDate.setHours(0,0,0,0);
+		 
+		        var now=new Date();
+		 
+		        var s=parseInt((oDate.getTime()-now.getTime())/1000);
+		 
+		        var d=parseInt(s/86400);
+		        s%=86400; //s=s%86400
+		 
+		 
+		        oDiv.innerHTML='距离除夕还剩:'+d+'天';
+		    }
+		    CountDown();
+		    setInterval(CountDown,86400);
+		}
+		 
+	</script>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>

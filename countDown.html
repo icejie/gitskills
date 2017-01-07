@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>countDown</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		#box{ width:300px; height:100px; border:1px solid #000; margin:100px auto; position:relative;}
+		#box p{ width:50%; height:40px; line-height:40px; text-align:center; border:1px dashed #666; margin:0 auto; background:#ccc;}
+		#box p.active{ background:#f60;}
+		#box span{ display:inline-block; width:60%; border:1px solid #000; height:40px; line-height:40px; text-align:center; position:absolute; left:50%; margin-left:-30%; bottom:0;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p></p>
+		<span>time</span>
+	</div>
+	<script type="text/javascript">
+		var arrTime=[3,123];
+		var arrText=['即将拍卖','正在拍卖'];
+		window.onload=function(){
+		    var oBox=document.getElementById('box');
+		    var oP=oBox.children[0];
+		    var oSpan=oBox.children[1];
+		     
+		    oP.innerHTML=arrText[0];
+		     
+		    var startT=arrTime[0];
+		    var endT=arrTime[1];
+		    var timer=null;
+		    function dao1(){
+		        startT--;
+		        oSpan.innerHTML=parseInt(startT/60)+'分'+startT%60+'秒';
+		         
+		        if(startT==0){
+		            clearInterval(timer);
+		             
+		            oP.innerHTML=arrText[1];
+		            oP.className='active';
+		            function dao2(){
+		                endT--;
+		                oSpan.innerHTML=parseInt(endT/60)+'分'+endT%60+'秒';
+		            }
+		            dao2();
+		            setInterval(dao2,1000); 
+		        }
+		    }
+		    dao1();
+		    timer=setInterval(dao1,1000);   
+		}
+	</script>
+</body>
+</html>
